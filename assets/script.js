@@ -1,27 +1,73 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
-// First, tell us your name
-let yourName = "Jane Doe" // HINT: Replace this with your own name!
 
-// We'll use these variables to track the counts of each cookie type
+let yourName = "David May" 
+
+// variables for cookies
 let gb = 0 // Gingerbread
 let cc = 0 // Chocolate Chip
 let sugar = 0 // Sugar Sprinkle
+let maxCookies = 0  //cookie total
 
-// selecting the element with an id of credit
+// get the id=credit and assign name
 const credit = document.querySelector('#credit')
-// selecting the element with an id of add-gb
-const gbPlusBtn = document.querySelector('#add-gb')
-
-// Code to update name display
 credit.textContent = `Created by ${yourName}`
+
+//create variables for the button elements
+const gbPlusBtn = document.querySelector('#add-gb')
+const gbMinusBtn = document.querySelector('#minus-gb')
+const ccPlusBtn = document.querySelector('#add-cc')
+const ccMinusBtn = document.querySelector('#minus-cc')
+const ssPlusBtn = document.querySelector('#add-sugar')
+const ssMinusBtn = document.querySelector('#minus-sugar')
+
+//create variables for the table
+const gbTotal = document.querySelector('#qty-gb')
+const ccTotal = document.querySelector('#qty-cc')
+const ssTotal = document.querySelector('#qty-sugar')
+const cookieTotal = document.querySelector('#qty-total')
 
 // Event listener for clicks on the "+" button for Gingerbread cookies
 gbPlusBtn.addEventListener('click', function() {
-// HINT: You can delete this console.log after you no longer need it!
-console.log('Gingerbread + button was clicked!')
-
-// TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+    gb++
+    gbTotal.textContent = gb
+    maxCookies = gb + cc + sugar
+    cookieTotal.textContent = maxCookies
+})
+ccPlusBtn.addEventListener('click', function() {
+    cc++
+    ccTotal.textContent = cc
+    maxCookies = gb + cc + sugar
+    cookieTotal.textContent = maxCookies
+})
+ssPlusBtn.addEventListener('click', function(){
+    sugar++
+    ssTotal.textContent = sugar
+    maxCookies = gb + cc + sugar
+    cookieTotal.textContent = maxCookies
+})
+gbMinusBtn.addEventListener('click', function(){
+    if ( gb > 0) {gb--}
+    else {gb = 0}
+    gbTotal.textContent = gb
+    maxCookies = gb + cc + sugar
+    cookieTotal.textContent = maxCookies
+})
+ccMinusBtn.addEventListener('click', function(){
+    if ( cc > 0) {cc--}
+    else {cc = 0}
+    ccTotal.textContent = cc
+    maxCookies = gb + cc + sugar
+    cookieTotal.textContent = maxCookies
+})
+ssMinusBtn.addEventListener('click', function(){
+    if ( sugar > 0) {sugar--}
+    else {sugar = 0}
+    ssTotal.textContent = sugar
+    maxCookies = gb + cc + sugar
+    cookieTotal.textContent = maxCookies
 })
 
-// TODO: Hook up event listeners for the rest of the buttons
+
+
+
+
+
